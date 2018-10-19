@@ -24,6 +24,7 @@ class ViewController: UIViewController {
     let replaceChars = "$.,"
     
     var tipPercentage : Double {
+        guard scTipPercentage != nil else { return 0.0 }
         let tipText = scTipPercentage.titleForSegment(at: scTipPercentage.selectedSegmentIndex)!
             .replacingOccurrences(of: "%", with: "")
         if let tipPerc = Double(tipText) {
@@ -33,6 +34,7 @@ class ViewController: UIViewController {
     }
     
     var billAmount : Double {
+        guard tfInput != nil else { return 0.0 }
         if var input = tfInput.text {
             replaceChars.forEach { (char) in
                 input = input.replacingOccurrences(of: "\(char)", with: "")
@@ -53,12 +55,12 @@ class ViewController: UIViewController {
         if let billAmt = UserDefaults.standard.string(forKey: "BillAmount") {
             tfInput.text = billAmt
             scTipPercentage.selectedSegmentIndex = UserDefaults.standard.integer(forKey: "TipPercentage")
-            calcTip()
+            calcValues()
         }
     }
     
     @IBAction func doTFValChanged(_ sender: UITextField) {
-        calcTip()
+        calcValues()
     }
     
     func numToTextfield(val : Double) {
@@ -66,23 +68,33 @@ class ViewController: UIViewController {
     }
 
     @IBAction func doSCTipPercentage(_ sender: UISegmentedControl) {
-        calcTip()
+        calcValues()
     }
     
-    func calcTip() {
+    func calcValues() {
         UserDefaults.standard.set(tfInput.text, forKey: "BillAmount")
         UserDefaults.standard.set(scTipPercentage.selectedSegmentIndex, forKey: "TipPercentage")
         
         numToTextfield(val: billAmount)
         
-        let tip = billAmount * tipPercentage
-        let total = billAmount + tip
+        let tip = calculateTip(billAmt: billAmount, tipPerc: tipPercentage)
+        let total = calculateTotal(billAmt: billAmount, tip: tip)
+        
         lblTipOutput.text = nf.string(from: tip as NSNumber)
         lblTotalOutput.text = nf.string(from: total as NSNumber)
         
         let nextDollar = Double(Int(tip) + 1)
         lblTipNextDollar.text = nf.string(from: nextDollar as NSNumber)
         lblTotalNextDollar.text = nf.string(from: (nextDollar + billAmount) as NSNumber)
+
+    }
+
+    func calculateTip(billAmt : Double, tipPerc : Double) -> Double {
+        return billAmt * tipPerc
+    }
+    
+    func calculateTotal(billAmt : Double, tip : Double) -> Double {
+        return billAmt + tip
     }
 }
 

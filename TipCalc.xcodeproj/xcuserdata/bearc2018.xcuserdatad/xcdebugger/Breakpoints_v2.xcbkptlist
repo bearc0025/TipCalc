@@ -9,13 +9,29 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "TipCalc/ViewController.swift"
-            timestampString = "561582203.634465"
+            filePath = "TipCalcTests/TipCalcTests.swift"
+            timestampString = "561678378.300578"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "84"
-            endingLineNumber = "84"
-            landmarkName = "calcTip()"
+            startingLineNumber = "49"
+            endingLineNumber = "49"
+            landmarkName = "testTipInput()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TipCalcTests/TipCalcTests.swift"
+            timestampString = "561678378.30134"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "44"
+            endingLineNumber = "44"
+            landmarkName = "testTipInput()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
