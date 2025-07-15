@@ -1,4 +1,4 @@
-name: Generate DocC Documentation
+name: Generate DocC Documentation 
 
 on:
   push:
