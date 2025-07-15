@@ -28,6 +28,7 @@ jobs:
             -scheme TipCalc \
             -derivedDataPath ./DerivedData \
             -destination 'platform=macOS' \
+            -allowProvisioningUpdates \
             -skipPackagePluginValidation
           
           doccarchive_path=$(find ./DerivedData -name "*.doccarchive" | head -n 1)
