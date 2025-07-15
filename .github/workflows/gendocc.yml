@@ -38,7 +38,7 @@ jobs:
           echo '<script>window.location.href += "/documentation/tipcalc"</script>' > docs/index.html
 
       - name: Upload artifact 📦
-        uses: actions/upload-pages-artifact@v3 # Corrected action to v3
+        uses: actions/upload-pages-artifact@v4
         with:
           # Upload only docs directory
           path: 'docs'
