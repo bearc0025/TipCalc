@@ -27,7 +27,7 @@ jobs:
           xcodebuild docbuild \
             -scheme TipCalc \
             -derivedDataPath ./DerivedData \
-            -destination 'platform=macOS' \
+            -destination "platform=iOS Simulator,name=iPhone 16" \
             -allowProvisioningUpdates \
             -skipPackagePluginValidation
           
