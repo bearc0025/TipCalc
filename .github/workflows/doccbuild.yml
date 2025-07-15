@@ -1,5 +1,5 @@
 # This is a basic workflow to help you get started with Actions
-name: Gen DocC
+name: CI
 
 # Controls when the workflow will run
 on:
@@ -27,7 +27,7 @@ jobs:
     runs-on: macos-latest # Use a valid, current runner
     steps:
       - name: Checkout 🛎️
-        uses: actions/checkout@v4  
+        uses: actions/checkout@v4
 
       - name: Build Documentation 📝
         run: |
@@ -38,7 +38,7 @@ jobs:
           echo '<script>window.location.href += "/documentation/tipcalc"</script>' > docs/index.html
 
       - name: Upload artifact 📦
-        uses: actions/upload-pages-artifact@v4 # Updated action to v4
+        uses: actions/upload-pages-artifact@v3 # Corrected action to v3
         with:
           # Upload only docs directory
           path: 'docs'
